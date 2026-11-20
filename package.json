@@ -1,0 +1,22 @@
+{
+  "name": "campana-taller",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing de temporada + servidor MCP del Taller Hermanos Restrepo",
+  "scripts": {
+    "start": "node src/servidor.js",
+    "dev": "node --watch src/servidor.js",
+    "test": "node --test \"test/*.test.js\"",
+    "semilla": "node scripts/semilla.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "express": "^5.3.0",
+    "pg": "^8.23.1",
+    "zod": "^3.25.76"
+  }
+}
