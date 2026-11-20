@@ -15,14 +15,18 @@ function texto(datos) {
   return { content: [{ type: 'text', text: JSON.stringify(datos, null, 2) }] };
 }
 
+function contar(lista, campo) {
+  const r = {};
+  for (const x of lista) r[x[campo]] = (r[x[campo]] ?? 0) + 1;
+  return r;
+}
+
 export async function calcularResumen(almacen, ahora = new Date()) {
   const [leads, conteo] = await Promise.all([almacen.listarLeads(), almacen.conteoPorDia()]);
   const dias = cuposPorDia(conteo);
   const capacidad = CAMPANA.cuposPorDia * CAMPANA.dias.length;
   const ocupados = dias.reduce((s, d) => s + d.ocupados, 0);
   const hace7 = ahora.getTime() - 7 * 24 * 3600 * 1000;
-  const porFuente = {};
-  for (const l of leads) porFuente[l.fuente] = (porFuente[l.fuente] ?? 0) + 1;
   const ordenados = [...dias].sort((a, b) => b.libres - a.libres);
   const msRestantes = new Date(CAMPANA.fechaLimite).getTime() - ahora.getTime();
   return {
@@ -31,7 +35,6 @@ export async function calcularResumen(almacen, ahora = new Date()) {
     precio: `${cop(CAMPANA.precioOferta)} (antes ${cop(CAMPANA.precioAncla)})`,
     inscripciones_abiertas: inscripcionesAbiertas(ahora),
     dias_para_fecha_limite: Math.max(Math.ceil(msRestantes / 86400000), 0),
-    fecha_limite: CAMPANA.fechaLimite,
     leads_totales: leads.length,
     leads_ultimos_7_dias: leads.filter((l) => new Date(l.creado_en).getTime() >= hace7).length,
     cupos_totales: capacidad,
@@ -39,18 +42,19 @@ export async function calcularResumen(almacen, ahora = new Date()) {
     cupos_libres: capacidad - ocupados,
     ocupacion_pct: Math.round((ocupados / capacidad) * 1000) / 10,
     ingreso_proyectado: cop(ocupados * CAMPANA.precioOferta),
-    leads_por_fuente: porFuente,
+    leads_por_fuente: contar(leads, 'fuente'),
+    estilos_pedidos: contar(leads, 'estilo'),
     dias_mas_vacios: ordenados.slice(0, 3).map((d) => `${d.nombre}: ${d.libres} libres`),
     dias_llenos: dias.filter((d) => d.libres === 0).map((d) => d.nombre),
   };
 }
 
 export function crearServidorMcp(almacen, urlLanding) {
-  const servidor = new McpServer({ name: 'campana-taller-restrepo', version: '1.0.0' });
+  const servidor = new McpServer({ name: 'navaja-barber-campana', version: '1.0.0' });
 
   servidor.registerTool('estado_campana', {
     title: 'Estado de la campaña',
-    description: 'Oferta, precio, fecha límite, enlace de la landing y si las inscripciones siguen abiertas.',
+    description: 'Oferta, precio, fecha límite, días de atención, enlace de la landing y si las inscripciones siguen abiertas.',
     inputSchema: {},
   }, async () => texto({
     negocio: `${CAMPANA.negocio} (${CAMPANA.ciudad})`,
@@ -77,7 +81,7 @@ export function crearServidorMcp(almacen, urlLanding) {
 
   servidor.registerTool('listar_leads', {
     title: 'Listar leads',
-    description: 'Reservas recibidas desde la landing (más recientes primero). WhatsApp enmascarado.',
+    description: 'Reservas recibidas desde la landing (más recientes primero). Nombre corto y WhatsApp enmascarado.',
     inputSchema: {
       dia: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe('Filtrar por día, formato AAAA-MM-DD'),
       limite: z.number().int().min(1).max(200).optional().describe('Máximo de filas (por defecto 50)'),
@@ -89,8 +93,8 @@ export function crearServidorMcp(almacen, urlLanding) {
       leads: leads.slice(0, limite).map((l) => ({
         nombre: nombreCorto(l.nombre),
         whatsapp: enmascararWhatsapp(l.whatsapp),
-        placa: l.placa,
         dia: nombreDia(l.dia),
+        estilo: l.estilo,
         fuente: l.fuente,
         creado_en: l.creado_en,
       })),
@@ -99,7 +103,7 @@ export function crearServidorMcp(almacen, urlLanding) {
 
   servidor.registerTool('resumen_campana', {
     title: 'Resumen de la campaña',
-    description: 'KPI de la campaña: leads, ocupación, ingreso proyectado, fuentes y días más vacíos.',
+    description: 'KPI de la campaña: leads, ocupación, ingreso proyectado, fuentes, estilos pedidos y días más vacíos.',
     inputSchema: {},
   }, async () => texto(await calcularResumen(almacen)));
 

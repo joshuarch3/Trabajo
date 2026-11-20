@@ -3,114 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chequeo Vacaciones Seguras · Taller Hermanos Restrepo</title>
-<meta name="description" content="Frenos, alineación, balanceo y suspensión antes de viajar en diciembre. De COP 240.000 a 129.000. Cupos limitados en Itagüí.">
-<meta name="theme-color" content="#16181b">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23f26b1d'/><text x='32' y='44' font-size='34' text-anchor='middle' font-family='Arial' font-weight='900' fill='white'>HR</text></svg>">
+<title>Look de Fin de Año · Navaja Barber Club</title>
+<meta name="description" content="Corte, barba con navaja, toalla caliente y cejas para cerrar el año. De COP 70.000 a 39.000. Cupos limitados en Laureles, Medellín.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23121110'/><text x='32' y='45' font-size='36' text-anchor='middle' font-family='Georgia' font-weight='700' fill='%23d4a94f'>N</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --fondo: #f5f2ec; --tinta: #16181b; --suave: #5d6168; --linea: #e4dfd6;
-    --carbon: #16181b; --carbon-2: #23262b; --carbon-3: #30343a;
-    --naranja: #f26b1d; --naranja-osc: #cf5410; --naranja-claro: #fff1e7;
-    --verde: #1d7a4b; --verde-claro: #e5f3eb; --rojo: #bf3a2e; --rojo-claro: #fbeae7;
-    --sombra: 0 24px 60px -24px rgba(0,0,0,.45);
+    --crema: #f4ede1; --crema-2: #ebe2d2; --tinta: #121110; --suave: #6b645a; --linea: #e0d6c4;
+    --negro: #121110; --negro-2: #1c1a18; --negro-3: #2a2724;
+    --oro: #d4a94f; --oro-osc: #a9822f; --oro-claro: #fbf3e0;
+    --rojo: #b3262e; --azul: #1f3d7a; --verde: #2f7a4b; --verde-claro: #e6f2ea; --rojo-claro: #f8e6e5;
+    --sombra: 0 30px 70px -28px rgba(0,0,0,.6);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--fondo); color: var(--tinta); font: 16px/1.5 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  h1, h2, h3, .num, .marca-nombre { font-family: Archivo, Inter, sans-serif; }
+  body { margin: 0; background: var(--crema); color: var(--tinta); font: 16px/1.5 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
   .envoltura { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
   @media (min-width: 640px) { .envoltura { padding: 0 28px; } }
+  .poste { height: 8px; background: repeating-linear-gradient(135deg, var(--rojo) 0 14px, #fff 14px 28px, var(--azul) 28px 42px, #fff 42px 56px); }
 
-  /* ---------- Barra superior ---------- */
-  .barra { background: var(--carbon); color: #fff; border-bottom: 1px solid #2a2d32; }
-  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
-  .marca { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
-  .logo { width: 38px; height: 38px; border-radius: 10px; background: var(--naranja); display: grid; place-items: center;
-    font: 900 15px Archivo, sans-serif; letter-spacing: -.02em; }
-  .marca-nombre { font-weight: 800; font-size: 16px; line-height: 1.1; }
-  .marca-nombre small { display: block; font: 500 12px Inter, sans-serif; color: #a9adb3; }
-  .barra-dato { display: none; color: #c9ccd1; font-size: 14px; gap: 18px; }
+  /* ---------- Barra ---------- */
+  .barra { background: var(--negro); color: #fff; border-bottom: 1px solid #2b2825; }
+  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 66px; }
+  .marca { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+  .logo { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--oro); display: grid; place-items: center;
+    font: 400 22px 'DM Serif Display', serif; color: var(--oro); }
+  .marca-nombre { font: 400 26px/1 'Bebas Neue', sans-serif; letter-spacing: .06em; }
+  .marca-nombre small { display: block; font: 500 11px Inter, sans-serif; letter-spacing: .14em; color: #a59d90; text-transform: uppercase; margin-top: 3px; }
+  .barra-dato { display: none; color: #cbc3b6; font-size: 14px; gap: 20px; }
   .barra-dato span { display: inline-flex; align-items: center; gap: 6px; }
-  .barra-dato svg { color: var(--naranja); }
+  .barra-dato svg { color: var(--oro); }
   @media (min-width: 860px) { .barra-dato { display: flex; } }
 
   /* ---------- Hero ---------- */
-  .hero { background:
-      radial-gradient(900px 420px at 85% -10%, rgba(242,107,29,.28), transparent 60%),
-      radial-gradient(600px 300px at -10% 110%, rgba(242,107,29,.12), transparent 60%),
-      var(--carbon);
-    color: #fff; position: relative; padding: 36px 0 64px; overflow: hidden; }
-  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12px;
-    background: repeating-linear-gradient(135deg, var(--naranja) 0 20px, var(--carbon) 20px 40px); }
-  .carretera { position: absolute; right: -40px; bottom: 12px; width: 560px; opacity: .08; pointer-events: none; }
+  .hero { color: #fff; position: relative; padding: 36px 0 60px; overflow: hidden;
+    background:
+      radial-gradient(700px 380px at 88% 0%, rgba(212,169,79,.22), transparent 62%),
+      radial-gradient(520px 300px at 0% 100%, rgba(179,38,46,.16), transparent 60%),
+      var(--negro); }
+  .tijeras { position: absolute; right: -60px; top: 50%; width: 520px; transform: translateY(-50%) rotate(-18deg); opacity: .05; pointer-events: none; }
   .hero-grid { display: grid; gap: 32px; position: relative; }
-  @media (min-width: 980px) { .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; } .hero { padding: 48px 0 72px; } }
+  @media (min-width: 980px) { .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 52px; align-items: center; } .hero { padding: 52px 0 68px; } }
 
-  .chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(242,107,29,.16); color: #ffb48a;
-    border: 1px solid rgba(242,107,29,.45); font-weight: 700; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
-    padding: 7px 12px; border-radius: 999px; }
-  .chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--naranja); box-shadow: 0 0 0 4px rgba(242,107,29,.25); }
-  h1 { font-size: clamp(38px, 6.4vw, 66px); line-height: .98; margin: 18px 0 16px; font-weight: 900; letter-spacing: -.025em; }
-  h1 span { color: var(--naranja); display: block; }
-  .bajada { color: #c9ccd1; font-size: 18px; max-width: 520px; margin: 0 0 26px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; color: var(--oro); border: 1px solid rgba(212,169,79,.5);
+    background: rgba(212,169,79,.1); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 7px 13px; border-radius: 999px; }
+  .chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--oro); box-shadow: 0 0 0 4px rgba(212,169,79,.22); }
+  h1 { margin: 18px 0 14px; font: 400 clamp(64px, 11vw, 118px)/.86 'Bebas Neue', sans-serif; letter-spacing: .01em; }
+  h1 em { display: block; font: italic 400 clamp(40px, 6.4vw, 70px)/1.05 'DM Serif Display', serif; color: var(--oro); letter-spacing: 0; }
+  .bajada { color: #cfc7ba; font-size: 18px; max-width: 520px; margin: 0 0 24px; }
 
-  .precio-caja { display: inline-flex; flex-direction: column; gap: 2px; }
-  .ancla-linea { display: flex; align-items: center; gap: 10px; color: #9ea2a8; font-size: 15px; }
-  .ancla { text-decoration: line-through; text-decoration-color: var(--naranja); text-decoration-thickness: 2px; font-weight: 600; }
-  .ahorro { background: var(--naranja); color: #fff; font-weight: 800; font-size: 13px; padding: 3px 9px; border-radius: 6px; }
-  .oferta { font-size: clamp(44px, 7vw, 64px); font-weight: 900; letter-spacing: -.02em; line-height: 1.05; }
-  .oferta { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 8px; }
-  .oferta small { font: 600 16px Inter, sans-serif; color: #9ea2a8; letter-spacing: 0; white-space: nowrap; }
+  .precio-caja { display: flex; flex-direction: column; gap: 2px; }
+  .ancla-linea { display: flex; align-items: center; gap: 10px; color: #a59d90; font-size: 15px; }
+  .ancla { text-decoration: line-through; text-decoration-color: var(--rojo); text-decoration-thickness: 2px; font-weight: 600; }
+  .ahorro { background: var(--rojo); color: #fff; font-weight: 800; font-size: 13px; padding: 3px 9px; border-radius: 6px; }
+  .oferta { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 10px; font: 400 clamp(60px, 9vw, 84px)/1 'Bebas Neue', sans-serif; letter-spacing: .02em; color: #fff; }
+  .oferta small { font: 600 16px Inter, sans-serif; color: #a59d90; letter-spacing: 0; white-space: nowrap; }
 
-  .contadores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; max-width: 540px; }
-  .contador { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 14px 16px; }
-  .contador .etiqueta { color: #a9adb3; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
-  .contador .num { font-size: 32px; font-weight: 900; line-height: 1.1; margin-top: 4px; }
-  .contador .num small { font: 600 14px Inter, sans-serif; color: #a9adb3; }
-  .contador.cupos .num { color: var(--naranja); }
-  .barra-cupos { height: 8px; background: rgba(255,255,255,.12); border-radius: 99px; margin-top: 10px; overflow: hidden; }
-  .barra-cupos i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #ffa36b, var(--naranja)); border-radius: 99px; transition: width .8s ease; }
+  .contadores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; max-width: 540px; }
+  .contador { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 14px 16px; }
+  .contador .etiqueta { color: #a59d90; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+  .contador .num { font: 400 40px/1.05 'Bebas Neue', sans-serif; letter-spacing: .03em; margin-top: 4px; }
+  .contador .num small { font: 600 14px Inter, sans-serif; color: #a59d90; letter-spacing: 0; }
+  .contador.cupos .num { color: var(--oro); }
+  .contador .pie { color: #a59d90; font-size: 12px; margin-top: 6px; }
+  .barra-cupos { height: 8px; background: rgba(255,255,255,.1); border-radius: 99px; margin-top: 10px; overflow: hidden; }
+  .barra-cupos i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #f0d08a, var(--oro)); border-radius: 99px; transition: width .8s ease; }
 
-  /* ---------- Tarjeta del formulario ---------- */
-  .tarjeta-form { background: #fff; color: var(--tinta); border-radius: 20px; padding: 24px; box-shadow: var(--sombra); position: relative; }
-  @media (min-width: 640px) { .tarjeta-form { padding: 28px; } }
-  .tarjeta-form h2 { font-size: 24px; margin: 0; letter-spacing: -.01em; }
+  /* ---------- Formulario ---------- */
+  .tarjeta-form { background: #fffdf8; color: var(--tinta); border-radius: 20px; padding: 24px; box-shadow: var(--sombra); position: relative; overflow: hidden; }
+  .tarjeta-form::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px;
+    background: repeating-linear-gradient(135deg, var(--rojo) 0 12px, #fff 12px 24px, var(--azul) 24px 36px, #fff 36px 48px); }
+  @media (min-width: 640px) { .tarjeta-form { padding: 30px 28px 26px; } }
+  .tarjeta-form h2 { font: 400 26px/1.1 'DM Serif Display', serif; margin: 4px 0 0; }
   .tarjeta-form .sub { color: var(--suave); font-size: 14px; margin: 4px 0 18px; }
   form { display: grid; gap: 14px; }
   .fila { display: grid; gap: 14px; }
   @media (min-width: 520px) { .fila { grid-template-columns: 1fr 1fr; } }
   label { font-weight: 600; font-size: 14px; display: grid; gap: 6px; }
-  input { font: inherit; padding: 12px 14px; border: 1.5px solid var(--linea); border-radius: 12px; min-height: 50px; background: #fbfaf8; transition: border-color .15s, background .15s; width: 100%; }
-  input::placeholder { color: #a5a29c; }
-  input:focus { outline: 3px solid #fbc6a3; border-color: var(--naranja); background: #fff; }
-  #placa { text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-family: Archivo, sans-serif;
-    background: #fff8c9; border-color: #e7d56a; text-align: center; }
+  input, select { font: inherit; padding: 12px 14px; border: 1.5px solid var(--linea); border-radius: 12px; min-height: 50px; background: #faf6ee; width: 100%; color: var(--tinta); }
+  input::placeholder { color: #a69d8f; }
+  input:focus, select:focus { outline: 3px solid #f0dcae; border-color: var(--oro-osc); background: #fff; }
   fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
   legend { font-weight: 600; font-size: 14px; margin-bottom: 8px; padding: 0; }
   .dias { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-  @media (max-width: 340px) { .dias { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 420px) { .dias { gap: 6px; } .dia b { font-size: 18px; } .dia small { font-size: 10px; } }
-  .dia { border: 1.5px solid var(--linea); background: #fff; border-radius: 12px; padding: 8px 4px; text-align: center;
-    cursor: pointer; font: inherit; min-height: 64px; transition: transform .1s, border-color .15s; }
-  .dia:hover:not(:disabled) { border-color: var(--naranja); transform: translateY(-1px); }
+  @media (max-width: 420px) { .dias { gap: 6px; } .dia b { font-size: 22px !important; } .dia small { font-size: 10px !important; } }
+  .dia { border: 1.5px solid var(--linea); background: #fff; border-radius: 12px; padding: 8px 4px; text-align: center; cursor: pointer; font: inherit; min-height: 66px; color: var(--tinta); transition: transform .1s, border-color .15s; }
+  .dia:hover:not(:disabled) { border-color: var(--oro-osc); transform: translateY(-1px); }
   .dia .dsem { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--suave); }
-  .dia b { display: block; font: 900 20px Archivo, sans-serif; line-height: 1.1; }
+  .dia b { display: block; font: 400 26px/1 'Bebas Neue', sans-serif; letter-spacing: .02em; }
   .dia small { font-size: 11px; color: var(--verde); font-weight: 700; }
-  .dia.poco small { color: var(--naranja-osc); }
-  .dia[aria-pressed="true"] { border-color: var(--naranja); background: var(--naranja-claro); box-shadow: inset 0 0 0 1px var(--naranja); }
-  .dia:disabled { opacity: .5; cursor: not-allowed; background: #f3f1ed; }
+  .dia.poco small { color: var(--rojo); }
+  .dia[aria-pressed="true"] { border-color: var(--negro); background: var(--negro); color: #fff; }
+  .dia[aria-pressed="true"] .dsem, .dia[aria-pressed="true"] small { color: var(--oro); }
+  .dia:disabled { opacity: .5; cursor: not-allowed; background: var(--crema-2); }
   .dia:disabled small { color: var(--rojo); }
-  .dia:focus-visible { outline: 3px solid #fbc6a3; }
-  button.principal { font: 800 17px Archivo, Inter, sans-serif; background: var(--naranja); color: #fff; border: 0;
-    border-radius: 14px; min-height: 56px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    box-shadow: 0 10px 24px -10px rgba(242,107,29,.8); transition: background .15s, transform .1s; }
-  button.principal:hover { background: var(--naranja-osc); }
+  .dia:focus-visible { outline: 3px solid #f0dcae; }
+  button.principal { font: 400 24px 'Bebas Neue', sans-serif; letter-spacing: .06em; background: var(--negro); color: #fff; border: 0;
+    border-radius: 14px; min-height: 58px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    box-shadow: 0 12px 26px -12px rgba(0,0,0,.7); transition: background .15s, transform .1s; }
+  button.principal span { color: var(--oro); }
+  button.principal:hover { background: #2a2724; }
   button.principal:active { transform: translateY(1px); }
-  button.principal:disabled { background: #b9b3aa; box-shadow: none; cursor: wait; }
+  button.principal:disabled { background: #a9a197; box-shadow: none; cursor: wait; }
   .garantia { display: flex; gap: 8px; align-items: center; justify-content: center; color: var(--suave); font-size: 13px; margin: 0; }
   .mensaje { border-radius: 12px; padding: 12px 14px; font-weight: 600; display: none; font-size: 15px; }
   .mensaje.error { display: block; background: var(--rojo-claro); color: var(--rojo); }
@@ -118,68 +115,70 @@
   .oculto { position: absolute; left: -9999px; }
 
   /* ---------- Secciones ---------- */
-  section.bloque { padding: 56px 0 8px; }
+  section.bloque { padding: 60px 0 8px; }
   .titulo-sec { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
-  .titulo-sec h2 { font-size: clamp(26px, 4vw, 36px); margin: 0; letter-spacing: -.02em; line-height: 1.1; }
+  .titulo-sec h2 { font: 400 clamp(30px, 4.4vw, 44px)/1.05 'DM Serif Display', serif; margin: 0; }
+  .titulo-sec h2 em { color: var(--oro-osc); }
   .titulo-sec p { margin: 0; color: var(--suave); max-width: 420px; }
   .rejilla { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-  .item { background: #fff; border: 1px solid var(--linea); border-radius: 16px; padding: 20px; }
-  .icono { width: 44px; height: 44px; border-radius: 12px; background: var(--naranja-claro); color: var(--naranja-osc); display: grid; place-items: center; margin-bottom: 12px; }
+  .item { background: #fffdf8; border: 1px solid var(--linea); border-radius: 16px; padding: 20px; }
+  .icono { width: 46px; height: 46px; border-radius: 50%; background: var(--negro); color: var(--oro); display: grid; place-items: center; margin-bottom: 12px; }
   .item h3 { margin: 0 0 4px; font-size: 17px; }
   .item p { margin: 0; color: var(--suave); font-size: 14px; }
 
   .pasos { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); counter-reset: paso; }
-  .paso { background: var(--carbon); color: #fff; border-radius: 16px; padding: 22px; position: relative; }
-  .paso::before { counter-increment: paso; content: counter(paso); font: 900 44px/1 Archivo, sans-serif; color: var(--naranja); display: block; margin-bottom: 10px; }
+  .paso { background: var(--negro); color: #fff; border-radius: 16px; padding: 22px; }
+  .paso::before { counter-increment: paso; content: "0" counter(paso); font: 400 50px/1 'Bebas Neue', sans-serif; color: var(--oro); display: block; margin-bottom: 8px; }
   .paso h3 { margin: 0 0 4px; font-size: 18px; }
-  .paso p { margin: 0; color: #b8bcc2; font-size: 14px; }
+  .paso p { margin: 0; color: #bdb5a8; font-size: 14px; }
 
-  .confianza { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; margin-top: 56px; }
+  .confianza { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; margin-top: 60px; }
   @media (min-width: 760px) { .confianza { grid-template-columns: repeat(4, 1fr); } }
-  .confianza div { background: #fff; padding: 20px; text-align: center; }
-  .confianza .num { font-size: 32px; font-weight: 900; letter-spacing: -.02em; }
+  .confianza div { background: #fffdf8; padding: 20px; text-align: center; }
+  .confianza .num { font: 400 42px/1 'Bebas Neue', sans-serif; letter-spacing: .02em; }
   .confianza small { color: var(--suave); font-size: 13px; }
 
-  footer { color: var(--suave); font-size: 13px; padding: 36px 0 96px; text-align: center; }
+  footer { color: var(--suave); font-size: 13px; padding: 36px 0 100px; text-align: center; }
   @media (min-width: 980px) { footer { padding-bottom: 40px; } }
 
   .cta-movil { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    background: var(--carbon); color: #fff; border-radius: 16px; padding: 10px 10px 10px 16px; box-shadow: var(--sombra); text-decoration: none; }
-  .cta-movil b { font: 900 18px Archivo, sans-serif; }
-  .cta-movil small { display: block; color: #a9adb3; font-size: 12px; }
-  .cta-movil span.boton { background: var(--naranja); border-radius: 12px; padding: 12px 16px; font-weight: 800; }
+    background: var(--negro); color: #fff; border-radius: 16px; padding: 10px 10px 10px 16px; box-shadow: var(--sombra); text-decoration: none; border: 1px solid #2b2825; }
+  .cta-movil b { font: 400 26px/1 'Bebas Neue', sans-serif; letter-spacing: .03em; }
+  .cta-movil small { display: block; color: var(--oro); font-size: 12px; font-weight: 600; }
+  .cta-movil span.boton { background: var(--oro); color: var(--negro); border-radius: 12px; padding: 12px 18px; font-weight: 800; }
   @media (min-width: 980px) { .cta-movil { display: none; } }
 </style>
 </head>
 <body>
 
+<div class="poste" aria-hidden="true"></div>
 <div class="barra">
   <div class="envoltura">
     <a class="marca" href="#">
-      <span class="logo">HR</span>
-      <span class="marca-nombre">Taller Hermanos Restrepo<small>Mecánica general · Itagüí</small></span>
+      <span class="logo">N</span>
+      <span class="marca-nombre">Navaja Barber Club<small>Barbería clásica · Desde 2014</small></span>
     </a>
     <div class="barra-dato">
-      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Itagüí, Antioquia</span>
-      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Lun a sáb · 7:30 a. m. – 5:30 p. m.</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Laureles, Medellín</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Lun a sáb · 9:00 a. m. – 8:00 p. m.</span>
     </div>
   </div>
 </div>
 
 <header class="hero">
-  <svg class="carretera" viewBox="0 0 560 220" fill="none" aria-hidden="true">
-    <path d="M40 200h480M120 150c40-50 90-70 160-70h70c40 0 70 20 95 50l35 20v30H90v-30z" stroke="#fff" stroke-width="10" stroke-linejoin="round"/>
-    <circle cx="170" cy="180" r="28" stroke="#fff" stroke-width="10"/><circle cx="420" cy="180" r="28" stroke="#fff" stroke-width="10"/>
+  <svg class="tijeras" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="7" aria-hidden="true">
+    <circle cx="50" cy="150" r="26"/><circle cx="150" cy="150" r="26"/>
+    <path d="M68 132L160 20M132 132L40 20"/>
   </svg>
   <div class="envoltura hero-grid">
     <div>
-      <span class="chip"><i></i>Temporada de viajes · Diciembre</span>
-      <h1>Chequeo<span>Vacaciones Seguras</span></h1>
-      <p class="bajada">Frenos, alineación, balanceo y suspensión revisados por mecánicos antes de salir a carretera. Recibes el informe con fotos por WhatsApp.</p>
+      <span class="chip"><i></i>Temporada de fiestas · Diciembre</span>
+      <h1>Look de<em>Fin de Año</em></h1>
+      <p class="bajada">Corte a tu estilo, barba perfilada con navaja, toalla caliente y cejas. Llega a las fiestas como se debe.</p>
 
       <div class="precio-caja">
-        <div class="ancla-linea">Antes <span class="ancla" id="ancla">COP 240.000</span><span class="ahorro" id="ahorro">−46 %</span></div>
-        <div class="oferta num"><span id="precio">COP 129.000</span><small>todo incluido</small></div>
+        <div class="ancla-linea">Antes <span class="ancla" id="ancla">COP 70.000</span><span class="ahorro" id="ahorro">−44 %</span></div>
+        <div class="oferta"><span id="precio">COP 39.000</span><small>servicio completo</small></div>
       </div>
 
       <div class="contadores">
@@ -189,32 +188,30 @@
           <div class="barra-cupos" aria-hidden="true"><i id="barra"></i></div>
         </div>
         <div class="contador">
-          <div class="etiqueta" id="cuenta-txt">Cierra inscripciones en</div>
+          <div class="etiqueta" id="cuenta-txt">Cierra en</div>
           <div class="num" id="cuenta">—</div>
-          <div style="color:#a9adb3;font-size:12px;margin-top:6px">Hasta el 30 de noviembre</div>
+          <div class="pie">Reservas hasta el 12 de diciembre</div>
         </div>
       </div>
     </div>
 
     <section class="tarjeta-form" id="reservar" aria-labelledby="titulo-form">
-      <h2 id="titulo-form">Reserva tu cupo</h2>
-      <p class="sub">Atendemos del 1 al 12 de diciembre · 8 carros por día</p>
+      <h2 id="titulo-form">Aparta tu silla</h2>
+      <p class="sub">Del 14 al 23 de diciembre · 3 barberos · 12 cupos por día</p>
       <form id="form" novalidate>
-        <label>Nombre<input name="nombre" autocomplete="name" required maxlength="80" placeholder="Ej. Carolina Gómez"></label>
+        <label>Nombre<input name="nombre" autocomplete="name" required maxlength="80" placeholder="Ej. Andrés Restrepo"></label>
         <div class="fila">
           <label>WhatsApp<input name="whatsapp" inputmode="numeric" autocomplete="tel" required placeholder="300 123 4567"></label>
-          <label>Placa<input id="placa" name="placa" required maxlength="7" placeholder="ABC123" autocapitalize="characters"></label>
+          <label>Estilo<select name="estilo" id="estilo"><option>Lo decido allá</option></select></label>
         </div>
         <fieldset>
-          <legend>¿Qué día traes el carro?</legend>
+          <legend>¿Qué día vienes?</legend>
           <div class="dias" id="dias"><small>Cargando cupos…</small></div>
         </fieldset>
         <label class="oculto" aria-hidden="true">Empresa<input name="empresa" tabindex="-1" autocomplete="off"></label>
         <div class="mensaje" id="mensaje" role="status" aria-live="polite"></div>
-        <button class="principal" id="enviar" type="submit">Reservar por COP 129.000
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-        <p class="garantia"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d7a4b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Pagas en el taller · Sin cobros sorpresa</p>
+        <button class="principal" id="enviar" type="submit">Reservar por <span id="precio-boton">COP 39.000</span></button>
+        <p class="garantia"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2f7a4b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Pagas en la barbería · Te confirmamos la hora por WhatsApp</p>
       </form>
     </section>
   </div>
@@ -223,38 +220,38 @@
 <main class="envoltura">
   <section class="bloque">
     <div class="titulo-sec">
-      <h2>Lo que revisamos</h2>
-      <p>Lo que más falla en carretera. Si encontramos algo, te cotizamos antes de tocarlo.</p>
+      <h2>Todo incluido, <em>sin afán</em></h2>
+      <p>45 minutos en la silla. Nada de cobros extra al final.</p>
     </div>
     <div class="rejilla">
-      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><h3>Frenos</h3><p>Pastillas, discos y líquido de frenos.</p></div>
-      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="8"/></svg></div><h3>Alineación y balanceo</h3><p>Computarizados, para que el carro no se vaya de lado.</p></div>
-      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4l-3 2 6 2-6 2 6 2-3 2v4"/></svg></div><h3>Suspensión y dirección</h3><p>Amortiguadores, terminales y rótulas.</p></div>
-      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5M17 7V5M8 13h3M14 13h3M15.5 11.5v3"/></svg></div><h3>Luces, batería y niveles</h3><p>Lo que te deja varado de noche o en un peaje.</p></div>
-      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></div><h3>Informe con fotos</h3><p>Por WhatsApp el mismo día, con lo que encontramos.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8 16L20 3M16 16L4 3"/></svg></div><h3>Corte a tu estilo</h3><p>Clásico, fade o lo que tengas en mente.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l11-11 4 4L7 21H3z"/><path d="M14 6l2-2 4 4-2 2"/></svg></div><h3>Barba con navaja</h3><p>Perfilado y contornos limpios.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3c-1 2 1 3 0 5M12 3c-1 2 1 3 0 5M16 3c-1 2 1 3 0 5"/><rect x="3" y="11" width="18" height="9" rx="2"/></svg></div><h3>Toalla caliente</h3><p>Con masaje facial para relajarte.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 10c3-3 6-3 8-1M13 9c2-2 5-2 8 1"/><circle cx="7" cy="15" r="2"/><circle cx="17" cy="15" r="2"/></svg></div><h3>Arreglo de cejas</h3><p>El detalle que completa el look.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h12v5a6 6 0 0 1-12 0z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17M8 3v2M12 3v2"/></svg></div><h3>Bebida de cortesía</h3><p>Café, cerveza o agua mientras esperas.</p></div>
     </div>
   </section>
 
   <section class="bloque">
-    <div class="titulo-sec"><h2>Así funciona</h2></div>
+    <div class="titulo-sec"><h2>Así de <em>fácil</em></h2></div>
     <div class="pasos">
-      <div class="paso"><h3>Reservas en 1 minuto</h3><p>Eliges el día con cupo. Te escribimos por WhatsApp para darte la hora.</p></div>
-      <div class="paso"><h3>Traes el carro</h3><p>Lo recibimos con fotos y lo revisamos en una de nuestras 4 bahías.</p></div>
-      <div class="paso"><h3>Viajas tranquilo</h3><p>Te entregamos el informe y el carro listo el mismo día.</p></div>
+      <div class="paso"><h3>Apartas tu cupo</h3><p>Eliges el día. Te escribimos por WhatsApp con la hora exacta.</p></div>
+      <div class="paso"><h3>Llegas y te sientas</h3><p>Sin filas: tu barbero ya te está esperando.</p></div>
+      <div class="paso"><h3>Sales listo</h3><p>Para la novena, la cena o el viaje de fin de año.</p></div>
     </div>
   </section>
 
   <div class="confianza">
-    <div><div class="num">4</div><small>bahías con elevador</small></div>
-    <div><div class="num">7</div><small>mecánicos</small></div>
-    <div><div class="num">~180</div><small>carros al mes</small></div>
-    <div><div class="num">1 día</div><small>de entrega</small></div>
+    <div><div class="num">3</div><small>barberos</small></div>
+    <div><div class="num">12</div><small>años en Laureles</small></div>
+    <div><div class="num">4,9 ★</div><small>en reseñas</small></div>
+    <div><div class="num">45 min</div><small>por servicio</small></div>
   </div>
 </main>
 
-<footer class="envoltura">Taller Hermanos Restrepo · Itagüí, Antioquia · Pagas en el taller el día del servicio.<br>Ejercicio académico: las cifras de la oferta son ficticias.</footer>
+<footer class="envoltura">Navaja Barber Club · Laureles, Medellín · Pagas en la barbería el día del servicio.<br>Ejercicio académico: negocio y cifras ficticios.</footer>
 
-<a class="cta-movil" href="#reservar"><span><b id="cta-precio">COP 129.000</b><small id="cta-cupos">Cupos limitados</small></span><span class="boton">Reservar</span></a>
+<a class="cta-movil" href="#reservar"><span><b id="cta-precio">COP 39.000</b><small id="cta-cupos">Cupos limitados</small></span><span class="boton">Reservar</span></a>
 
 <script>
   const $ = (id) => document.getElementById(id);
@@ -262,13 +259,14 @@
   let diaElegido = null;
   let fechaLimite = null;
   let abiertas = true;
+  let estilosCargados = false;
 
   function pintarCuenta() {
     if (!fechaLimite) return;
     const ms = fechaLimite - Date.now();
-    if (ms <= 0) { $('cuenta').textContent = 'Cerrado'; $('cuenta-txt').textContent = 'Inscripciones'; return; }
+    if (ms <= 0) { $('cuenta').textContent = 'Cerrado'; $('cuenta-txt').textContent = 'Reservas'; return; }
     const d = Math.floor(ms / 86400000), h = Math.floor(ms / 3600000) % 24, m = Math.floor(ms / 60000) % 60;
-    $('cuenta').innerHTML = d > 0 ? `${d}<small> d </small>${h}<small> h</small>` : `${h}<small> h </small>${m}<small> min</small>`;
+    $('cuenta').innerHTML = d > 0 ? `${d}<small> días </small>${h}<small> h</small>` : `${h}<small> h </small>${m}<small> min</small>`;
   }
 
   async function cargar() {
@@ -276,10 +274,13 @@
     const c = await r.json();
     fechaLimite = new Date(c.fechaLimite).getTime();
     abiertas = c.abiertas;
+    for (const id of ['precio', 'precio-boton', 'cta-precio']) $(id).textContent = cop(c.precioOferta);
     $('ancla').textContent = cop(c.precioAncla);
-    $('precio').textContent = cop(c.precioOferta);
-    $('cta-precio').textContent = cop(c.precioOferta);
     $('ahorro').textContent = `−${Math.round((1 - c.precioOferta / c.precioAncla) * 100)} %`;
+    if (!estilosCargados) {
+      $('estilo').innerHTML = c.estilos.map((e) => `<option${e === 'Lo decido allá' ? ' selected' : ''}>${e}</option>`).join('');
+      estilosCargados = true;
+    }
     const libres = c.dias.reduce((s, d) => s + d.libres, 0);
     const total = c.dias.reduce((s, d) => s + d.capacidad, 0);
     $('libres').textContent = libres;
@@ -313,7 +314,7 @@
 
   $('form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!diaElegido) return mensaje('error', 'Elige el día en que traes el carro.');
+    if (!diaElegido) return mensaje('error', 'Elige el día en que vienes.');
     const datos = Object.fromEntries(new FormData(e.target));
     datos.dia = diaElegido;
     datos.fuente = new URLSearchParams(location.search).get('utm_source') || 'directo';
@@ -323,7 +324,7 @@
       const res = await r.json();
       if (!r.ok) { mensaje('error', res.error); }
       else {
-        mensaje('ok', '¡Listo! Tu cupo quedó reservado. Te escribimos por WhatsApp para confirmar la hora.');
+        mensaje('ok', '¡Listo! Tu silla quedó apartada. Te escribimos por WhatsApp para darte la hora.');
         e.target.reset(); diaElegido = null;
       }
       await cargar();

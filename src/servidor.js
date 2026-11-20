@@ -24,6 +24,7 @@ export function crearApp(almacen, { mcpToken = process.env.MCP_TOKEN, urlPublica
     try {
       res.json({
         oferta: CAMPANA.oferta,
+        estilos: CAMPANA.estilos,
         precioAncla: CAMPANA.precioAncla,
         precioOferta: CAMPANA.precioOferta,
         fechaLimite: CAMPANA.fechaLimite,
@@ -41,7 +42,7 @@ export function crearApp(almacen, { mcpToken = process.env.MCP_TOKEN, urlPublica
       if (error) return res.status(400).json({ error });
       const r = await almacen.insertarLead(lead, CAMPANA.cuposPorDia);
       if (r.error === 'sin_cupo') return res.status(409).json({ error: 'Ese día se acaba de llenar. Elige otro.' });
-      if (r.error === 'duplicado') return res.status(409).json({ error: 'Esa placa ya tiene un cupo reservado.' });
+      if (r.error === 'duplicado') return res.status(409).json({ error: 'Ese WhatsApp ya tiene un cupo reservado.' });
       res.status(201).json({ ok: true, dia: r.lead.dia });
     } catch (e) { next(e); }
   });

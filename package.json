@@ -1,9 +1,9 @@
 {
-  "name": "campana-taller",
+  "name": "barberia-campana",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Landing de temporada + servidor MCP del Taller Hermanos Restrepo",
+  "description": "Landing de temporada + servidor MCP de Navaja Barber Club",
   "scripts": {
     "start": "node src/servidor.js",
     "dev": "node --watch src/servidor.js",

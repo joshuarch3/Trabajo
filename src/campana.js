@@ -1,23 +1,24 @@
-// Datos de la campaña. Negocio real del curso, cifras de la oferta ficticias.
+// Datos de la campaña. Negocio y cifras ficticios (ejercicio académico).
 export const CAMPANA = {
-  negocio: 'Taller Hermanos Restrepo',
-  ciudad: 'Itagüí',
-  oferta: 'Chequeo Vacaciones Seguras',
+  negocio: 'Navaja Barber Club',
+  ciudad: 'Laureles, Medellín',
+  oferta: 'Look de Fin de Año',
   incluye: [
-    'Revisión de frenos (pastillas, discos y líquido)',
-    'Alineación y balanceo',
-    'Suspensión y dirección',
-    'Luces, batería y niveles',
-    'Informe con fotos por WhatsApp',
+    'Corte a tu estilo (clásico o fade)',
+    'Perfilado de barba con navaja',
+    'Toalla caliente y masaje facial',
+    'Arreglo de cejas',
+    'Bebida de cortesía',
   ],
-  precioAncla: 240000,
-  precioOferta: 129000,
-  cuposPorDia: 8, // 4 bahías x 2 turnos
-  // Inscripciones hasta el 30 de noviembre a las 23:59 (hora Colombia).
-  fechaLimite: '2026-11-30T23:59:00-05:00',
-  // Días de atención: 1 al 12 de diciembre, sin domingo ni el festivo del 8.
-  dias: ['2026-12-01', '2026-12-02', '2026-12-03', '2026-12-04', '2026-12-05',
-    '2026-12-07', '2026-12-09', '2026-12-10', '2026-12-11', '2026-12-12'],
+  estilos: ['Clásico', 'Fade', 'Barba completa', 'Lo decido allá'],
+  precioAncla: 70000,
+  precioOferta: 39000,
+  cuposPorDia: 12, // 3 barberos x 4 turnos
+  // Inscripciones hasta el 12 de diciembre a las 23:59 (hora Colombia).
+  fechaLimite: '2026-12-12T23:59:00-05:00',
+  // Días de atención: 14 al 23 de diciembre, sin el domingo 20.
+  dias: ['2026-12-14', '2026-12-15', '2026-12-16', '2026-12-17', '2026-12-18',
+    '2026-12-19', '2026-12-21', '2026-12-22', '2026-12-23'],
 };
 
 const NOMBRES_DIA = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -36,16 +37,10 @@ export function inscripcionesAbiertas(ahora = new Date()) {
   return ahora.getTime() <= new Date(CAMPANA.fechaLimite).getTime();
 }
 
-// Cupos por día a partir del conteo de reservas { '2026-12-01': 3, ... }.
+// Cupos por día a partir del conteo de reservas { '2026-12-14': 3, ... }.
 export function cuposPorDia(conteo) {
   return CAMPANA.dias.map((dia) => {
     const ocupados = conteo[dia] ?? 0;
-    return {
-      dia,
-      nombre: nombreDia(dia),
-      ocupados,
-      libres: Math.max(CAMPANA.cuposPorDia - ocupados, 0),
-      capacidad: CAMPANA.cuposPorDia,
-    };
+    return { dia, nombre: nombreDia(dia), ocupados, libres: Math.max(CAMPANA.cuposPorDia - ocupados, 0), capacidad: CAMPANA.cuposPorDia };
   });
 }

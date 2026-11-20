@@ -1,22 +1,26 @@
-// Envía leads ficticios a la landing por el mismo formulario público.
-// Uso: node scripts/semilla.js https://tu-app.up.railway.app
+// Envía reservas ficticias a la landing por el mismo formulario público.
+// Uso: node scripts/semilla.js http://localhost:3000
 const url = process.argv[2] ?? 'http://localhost:3000';
-const nombres = ['Carolina Gómez', 'Andrés Restrepo', 'Luisa Fernanda Ríos', 'Julián Mejía', 'Paola Cardona',
-  'Santiago Úsuga', 'Marcela Ochoa', 'Felipe Arango', 'Daniela Zapata', 'Camilo Henao', 'Natalia Vélez',
-  'Esteban Montoya', 'Valeria Posada', 'Mateo Giraldo', 'Sara Londoño', 'Juan David Correa', 'Manuela Álvarez',
-  'Sebastián Toro', 'Alejandra Muñoz', 'David Echeverri', 'Laura Betancur', 'Tomás Gaviria', 'Isabel Uribe'];
-// Más demanda el primer fin de semana y el 11-12; el 3, 7 y 9 quedan casi vacíos.
-const dias = ['2026-12-01', '2026-12-04', '2026-12-04', '2026-12-05', '2026-12-05', '2026-12-05', '2026-12-05',
-  '2026-12-05', '2026-12-05', '2026-12-05', '2026-12-12', '2026-12-12', '2026-12-12', '2026-12-12', '2026-12-12',
-  '2026-12-11', '2026-12-11', '2026-12-11', '2026-12-02', '2026-12-10', '2026-12-09', '2026-12-04', '2026-12-12'];
-const fuentes = ['instagram', 'instagram', 'facebook', 'whatsapp', 'directo'];
-const letras = 'BCDFGHJKLMNPRSTVWXYZ';
+const nombres = ['Andrés Restrepo', 'Julián Mejía', 'Santiago Úsuga', 'Felipe Arango', 'Camilo Henao', 'Esteban Montoya',
+  'Mateo Giraldo', 'Juan David Correa', 'Sebastián Toro', 'David Echeverri', 'Tomás Gaviria', 'Simón Vélez',
+  'Alejandro Posada', 'Nicolás Ochoa', 'Miguel Cardona', 'Daniel Zapata', 'Samuel Londoño', 'Emiliano Ríos',
+  'Jerónimo Uribe', 'Martín Betancur', 'Pablo Álvarez', 'Lucas Muñoz', 'Jacobo Arias', 'Kevin Restrepo',
+  'Brayan Gómez', 'Cristian Quintero', 'Óscar Duque', 'Iván Salazar', 'Hernán Pineda', 'Mauricio Lopera',
+  'Ricardo Hoyos', 'Wilson Agudelo', 'Gustavo Tobón', 'Diego Herrera'];
+// El fin de semana antes de Navidad (18, 19, 21, 22, 23) se llena; el 14, 15 y 16 quedan casi vacíos.
+const dias = ['2026-12-19', '2026-12-19', '2026-12-19', '2026-12-19', '2026-12-19', '2026-12-19', '2026-12-19',
+  '2026-12-19', '2026-12-19', '2026-12-19', '2026-12-19', '2026-12-23', '2026-12-23', '2026-12-23', '2026-12-23',
+  '2026-12-23', '2026-12-23', '2026-12-23', '2026-12-23', '2026-12-18', '2026-12-18', '2026-12-18', '2026-12-18',
+  '2026-12-18', '2026-12-22', '2026-12-22', '2026-12-22', '2026-12-21', '2026-12-21', '2026-12-17', '2026-12-17',
+  '2026-12-16', '2026-12-14', '2026-12-19'];
+const estilos = ['Fade', 'Fade', 'Clásico', 'Barba completa', 'Fade', 'Lo decido allá', 'Clásico'];
+const fuentes = ['instagram', 'instagram', 'tiktok', 'whatsapp', 'instagram', 'directo'];
 
 let ok = 0;
 for (let i = 0; i < nombres.length; i++) {
-  const placa = letras[i % 20] + letras[(i * 7) % 20] + letras[(i * 3 + 5) % 20] + String(200 + i * 31).slice(-3);
-  const cuerpo = { nombre: nombres[i], whatsapp: `3${String(100000000 + i * 7654321).slice(0, 9)}`, placa, dia: dias[i], fuente: fuentes[i % 5] };
+  const cuerpo = { nombre: nombres[i], whatsapp: `3${String(10000000 + i * 2468013).padStart(9, '0').slice(0, 9)}`,
+    dia: dias[i], estilo: estilos[i % estilos.length], fuente: fuentes[i % fuentes.length] };
   const r = await fetch(`${url}/api/leads`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cuerpo) });
-  if (r.ok) ok++; else console.log(placa, (await r.json()).error);
+  if (r.ok) ok++; else console.log(nombres[i], (await r.json()).error);
 }
-console.log(`${ok} leads creados en ${url}`);
+console.log(`${ok} reservas creadas en ${url}`);
