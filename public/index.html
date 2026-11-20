@@ -5,126 +5,256 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chequeo Vacaciones Seguras · Taller Hermanos Restrepo</title>
 <meta name="description" content="Frenos, alineación, balanceo y suspensión antes de viajar en diciembre. De COP 240.000 a 129.000. Cupos limitados en Itagüí.">
+<meta name="theme-color" content="#16181b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23f26b1d'/><text x='32' y='44' font-size='34' text-anchor='middle' font-family='Arial' font-weight='900' fill='white'>HR</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --fondo: #f6f3ee; --tinta: #1b1c1e; --suave: #5b5e63; --linea: #e2ddd4;
-    --carbon: #1f2124; --naranja: #f26b1d; --naranja-osc: #c9530f; --verde: #1f7a4d; --rojo: #c0362c;
-    --tarjeta: #ffffff;
+    --fondo: #f5f2ec; --tinta: #16181b; --suave: #5d6168; --linea: #e4dfd6;
+    --carbon: #16181b; --carbon-2: #23262b; --carbon-3: #30343a;
+    --naranja: #f26b1d; --naranja-osc: #cf5410; --naranja-claro: #fff1e7;
+    --verde: #1d7a4b; --verde-claro: #e5f3eb; --rojo: #bf3a2e; --rojo-claro: #fbeae7;
+    --sombra: 0 24px 60px -24px rgba(0,0,0,.45);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--fondo); color: var(--tinta); font: 16px/1.5 Inter, system-ui, sans-serif; }
-  h1, h2, .num { font-family: Archivo, Inter, sans-serif; }
-  .envoltura { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); font: 16px/1.5 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, .num, .marca-nombre { font-family: Archivo, Inter, sans-serif; }
+  .envoltura { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 640px) { .envoltura { padding: 0 28px; } }
 
-  header.hero { background: var(--carbon); color: #fff; padding: 20px 0 40px; position: relative; overflow: hidden; }
-  header.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
-    background: repeating-linear-gradient(135deg, var(--naranja) 0 18px, var(--carbon) 18px 36px); }
-  .marca { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; color: #d8d8d8; }
-  .marca b { color: #fff; }
-  .chip { display: inline-block; background: var(--naranja); color: #fff; font-weight: 700; font-size: 12px;
-    letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin: 28px 0 14px; }
-  h1 { font-size: clamp(34px, 7vw, 60px); line-height: 1.02; margin: 0 0 14px; font-weight: 900; letter-spacing: -.02em; }
-  h1 span { color: var(--naranja); }
-  .bajada { color: #cfcfcf; font-size: 18px; max-width: 560px; margin: 0 0 24px; }
-  .precios { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-  .ancla { color: #9a9a9a; text-decoration: line-through; font-size: 20px; }
-  .oferta { font-size: clamp(40px, 8vw, 56px); font-weight: 900; color: #fff; }
-  .ahorro { background: #fff; color: var(--carbon); font-weight: 700; font-size: 14px; padding: 4px 10px; border-radius: 6px; }
+  /* ---------- Barra superior ---------- */
+  .barra { background: var(--carbon); color: #fff; border-bottom: 1px solid #2a2d32; }
+  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
+  .marca { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  .logo { width: 38px; height: 38px; border-radius: 10px; background: var(--naranja); display: grid; place-items: center;
+    font: 900 15px Archivo, sans-serif; letter-spacing: -.02em; }
+  .marca-nombre { font-weight: 800; font-size: 16px; line-height: 1.1; }
+  .marca-nombre small { display: block; font: 500 12px Inter, sans-serif; color: #a9adb3; }
+  .barra-dato { display: none; color: #c9ccd1; font-size: 14px; gap: 18px; }
+  .barra-dato span { display: inline-flex; align-items: center; gap: 6px; }
+  .barra-dato svg { color: var(--naranja); }
+  @media (min-width: 860px) { .barra-dato { display: flex; } }
 
-  .contadores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; max-width: 520px; }
-  .contador { background: #2b2e32; border-radius: 12px; padding: 14px; }
-  .contador .num { font-size: 30px; font-weight: 900; line-height: 1; }
-  .contador small { color: #bdbdbd; font-size: 13px; }
-  .contador.alerta .num { color: var(--naranja); }
+  /* ---------- Hero ---------- */
+  .hero { background:
+      radial-gradient(900px 420px at 85% -10%, rgba(242,107,29,.28), transparent 60%),
+      radial-gradient(600px 300px at -10% 110%, rgba(242,107,29,.12), transparent 60%),
+      var(--carbon);
+    color: #fff; position: relative; padding: 36px 0 64px; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12px;
+    background: repeating-linear-gradient(135deg, var(--naranja) 0 20px, var(--carbon) 20px 40px); }
+  .carretera { position: absolute; right: -40px; bottom: 12px; width: 560px; opacity: .08; pointer-events: none; }
+  .hero-grid { display: grid; gap: 32px; position: relative; }
+  @media (min-width: 980px) { .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; } .hero { padding: 48px 0 72px; } }
 
-  main { padding: 32px 0 48px; display: grid; gap: 24px; }
-  @media (min-width: 880px) { main { grid-template-columns: 1fr 1.1fr; align-items: start; } }
-  .tarjeta { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 16px; padding: 22px; }
-  h2 { font-size: 22px; margin: 0 0 12px; }
-  ul.incluye { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-  ul.incluye li { display: flex; gap: 10px; align-items: flex-start; }
-  ul.incluye li::before { content: "✓"; color: #fff; background: var(--verde); border-radius: 50%;
-    width: 22px; height: 22px; flex: none; display: grid; place-items: center; font-size: 13px; font-weight: 700; margin-top: 1px; }
-  .nota { color: var(--suave); font-size: 14px; margin-top: 14px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(242,107,29,.16); color: #ffb48a;
+    border: 1px solid rgba(242,107,29,.45); font-weight: 700; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+    padding: 7px 12px; border-radius: 999px; }
+  .chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--naranja); box-shadow: 0 0 0 4px rgba(242,107,29,.25); }
+  h1 { font-size: clamp(38px, 6.4vw, 66px); line-height: .98; margin: 18px 0 16px; font-weight: 900; letter-spacing: -.025em; }
+  h1 span { color: var(--naranja); display: block; }
+  .bajada { color: #c9ccd1; font-size: 18px; max-width: 520px; margin: 0 0 26px; }
 
+  .precio-caja { display: inline-flex; flex-direction: column; gap: 2px; }
+  .ancla-linea { display: flex; align-items: center; gap: 10px; color: #9ea2a8; font-size: 15px; }
+  .ancla { text-decoration: line-through; text-decoration-color: var(--naranja); text-decoration-thickness: 2px; font-weight: 600; }
+  .ahorro { background: var(--naranja); color: #fff; font-weight: 800; font-size: 13px; padding: 3px 9px; border-radius: 6px; }
+  .oferta { font-size: clamp(44px, 7vw, 64px); font-weight: 900; letter-spacing: -.02em; line-height: 1.05; }
+  .oferta { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 8px; }
+  .oferta small { font: 600 16px Inter, sans-serif; color: #9ea2a8; letter-spacing: 0; white-space: nowrap; }
+
+  .contadores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; max-width: 540px; }
+  .contador { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 14px 16px; }
+  .contador .etiqueta { color: #a9adb3; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .contador .num { font-size: 32px; font-weight: 900; line-height: 1.1; margin-top: 4px; }
+  .contador .num small { font: 600 14px Inter, sans-serif; color: #a9adb3; }
+  .contador.cupos .num { color: var(--naranja); }
+  .barra-cupos { height: 8px; background: rgba(255,255,255,.12); border-radius: 99px; margin-top: 10px; overflow: hidden; }
+  .barra-cupos i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #ffa36b, var(--naranja)); border-radius: 99px; transition: width .8s ease; }
+
+  /* ---------- Tarjeta del formulario ---------- */
+  .tarjeta-form { background: #fff; color: var(--tinta); border-radius: 20px; padding: 24px; box-shadow: var(--sombra); position: relative; }
+  @media (min-width: 640px) { .tarjeta-form { padding: 28px; } }
+  .tarjeta-form h2 { font-size: 24px; margin: 0; letter-spacing: -.01em; }
+  .tarjeta-form .sub { color: var(--suave); font-size: 14px; margin: 4px 0 18px; }
   form { display: grid; gap: 14px; }
+  .fila { display: grid; gap: 14px; }
+  @media (min-width: 520px) { .fila { grid-template-columns: 1fr 1fr; } }
   label { font-weight: 600; font-size: 14px; display: grid; gap: 6px; }
-  input { font: inherit; padding: 13px 14px; border: 1.5px solid var(--linea); border-radius: 10px; min-height: 48px; background: #fff; }
-  input:focus, .dia:focus-visible { outline: 3px solid #f9b88f; border-color: var(--naranja); }
-  #placa { text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
-  fieldset { border: 0; padding: 0; margin: 0; }
-  legend { font-weight: 600; font-size: 14px; margin-bottom: 8px; }
-  .dias { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
-  .dia { border: 1.5px solid var(--linea); background: #fff; border-radius: 10px; padding: 10px 6px; text-align: center;
-    cursor: pointer; font: inherit; min-height: 64px; }
-  .dia b { display: block; font-size: 15px; }
-  .dia small { font-size: 12px; color: var(--verde); font-weight: 600; }
+  input { font: inherit; padding: 12px 14px; border: 1.5px solid var(--linea); border-radius: 12px; min-height: 50px; background: #fbfaf8; transition: border-color .15s, background .15s; width: 100%; }
+  input::placeholder { color: #a5a29c; }
+  input:focus { outline: 3px solid #fbc6a3; border-color: var(--naranja); background: #fff; }
+  #placa { text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-family: Archivo, sans-serif;
+    background: #fff8c9; border-color: #e7d56a; text-align: center; }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  legend { font-weight: 600; font-size: 14px; margin-bottom: 8px; padding: 0; }
+  .dias { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  @media (max-width: 340px) { .dias { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .dias { gap: 6px; } .dia b { font-size: 18px; } .dia small { font-size: 10px; } }
+  .dia { border: 1.5px solid var(--linea); background: #fff; border-radius: 12px; padding: 8px 4px; text-align: center;
+    cursor: pointer; font: inherit; min-height: 64px; transition: transform .1s, border-color .15s; }
+  .dia:hover:not(:disabled) { border-color: var(--naranja); transform: translateY(-1px); }
+  .dia .dsem { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--suave); }
+  .dia b { display: block; font: 900 20px Archivo, sans-serif; line-height: 1.1; }
+  .dia small { font-size: 11px; color: var(--verde); font-weight: 700; }
   .dia.poco small { color: var(--naranja-osc); }
-  .dia[aria-pressed="true"] { border-color: var(--naranja); background: #fff3eb; box-shadow: inset 0 0 0 1px var(--naranja); }
-  .dia:disabled { opacity: .45; cursor: not-allowed; }
+  .dia[aria-pressed="true"] { border-color: var(--naranja); background: var(--naranja-claro); box-shadow: inset 0 0 0 1px var(--naranja); }
+  .dia:disabled { opacity: .5; cursor: not-allowed; background: #f3f1ed; }
   .dia:disabled small { color: var(--rojo); }
-  button.principal { font: 700 17px Archivo, Inter, sans-serif; background: var(--naranja); color: #fff; border: 0;
-    border-radius: 12px; min-height: 54px; cursor: pointer; }
+  .dia:focus-visible { outline: 3px solid #fbc6a3; }
+  button.principal { font: 800 17px Archivo, Inter, sans-serif; background: var(--naranja); color: #fff; border: 0;
+    border-radius: 14px; min-height: 56px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    box-shadow: 0 10px 24px -10px rgba(242,107,29,.8); transition: background .15s, transform .1s; }
   button.principal:hover { background: var(--naranja-osc); }
-  button.principal:disabled { background: #b9b3aa; cursor: wait; }
-  .mensaje { border-radius: 10px; padding: 12px 14px; font-weight: 500; display: none; }
-  .mensaje.error { display: block; background: #fbe9e7; color: var(--rojo); }
-  .mensaje.ok { display: block; background: #e6f4ec; color: var(--verde); }
+  button.principal:active { transform: translateY(1px); }
+  button.principal:disabled { background: #b9b3aa; box-shadow: none; cursor: wait; }
+  .garantia { display: flex; gap: 8px; align-items: center; justify-content: center; color: var(--suave); font-size: 13px; margin: 0; }
+  .mensaje { border-radius: 12px; padding: 12px 14px; font-weight: 600; display: none; font-size: 15px; }
+  .mensaje.error { display: block; background: var(--rojo-claro); color: var(--rojo); }
+  .mensaje.ok { display: block; background: var(--verde-claro); color: var(--verde); }
   .oculto { position: absolute; left: -9999px; }
-  footer { color: var(--suave); font-size: 13px; padding: 0 0 32px; }
+
+  /* ---------- Secciones ---------- */
+  section.bloque { padding: 56px 0 8px; }
+  .titulo-sec { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+  .titulo-sec h2 { font-size: clamp(26px, 4vw, 36px); margin: 0; letter-spacing: -.02em; line-height: 1.1; }
+  .titulo-sec p { margin: 0; color: var(--suave); max-width: 420px; }
+  .rejilla { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .item { background: #fff; border: 1px solid var(--linea); border-radius: 16px; padding: 20px; }
+  .icono { width: 44px; height: 44px; border-radius: 12px; background: var(--naranja-claro); color: var(--naranja-osc); display: grid; place-items: center; margin-bottom: 12px; }
+  .item h3 { margin: 0 0 4px; font-size: 17px; }
+  .item p { margin: 0; color: var(--suave); font-size: 14px; }
+
+  .pasos { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); counter-reset: paso; }
+  .paso { background: var(--carbon); color: #fff; border-radius: 16px; padding: 22px; position: relative; }
+  .paso::before { counter-increment: paso; content: counter(paso); font: 900 44px/1 Archivo, sans-serif; color: var(--naranja); display: block; margin-bottom: 10px; }
+  .paso h3 { margin: 0 0 4px; font-size: 18px; }
+  .paso p { margin: 0; color: #b8bcc2; font-size: 14px; }
+
+  .confianza { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; margin-top: 56px; }
+  @media (min-width: 760px) { .confianza { grid-template-columns: repeat(4, 1fr); } }
+  .confianza div { background: #fff; padding: 20px; text-align: center; }
+  .confianza .num { font-size: 32px; font-weight: 900; letter-spacing: -.02em; }
+  .confianza small { color: var(--suave); font-size: 13px; }
+
+  footer { color: var(--suave); font-size: 13px; padding: 36px 0 96px; text-align: center; }
+  @media (min-width: 980px) { footer { padding-bottom: 40px; } }
+
+  .cta-movil { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--carbon); color: #fff; border-radius: 16px; padding: 10px 10px 10px 16px; box-shadow: var(--sombra); text-decoration: none; }
+  .cta-movil b { font: 900 18px Archivo, sans-serif; }
+  .cta-movil small { display: block; color: #a9adb3; font-size: 12px; }
+  .cta-movil span.boton { background: var(--naranja); border-radius: 12px; padding: 12px 16px; font-weight: 800; }
+  @media (min-width: 980px) { .cta-movil { display: none; } }
 </style>
 </head>
 <body>
-<header class="hero">
+
+<div class="barra">
   <div class="envoltura">
-    <div class="marca">🔧 <b>Taller Hermanos Restrepo</b> · Itagüí · 4 bahías</div>
-    <span class="chip">Temporada de viajes · diciembre</span>
-    <h1>Chequeo <span>Vacaciones Seguras</span></h1>
-    <p class="bajada">Frenos, alineación, balanceo y suspensión revisados antes de salir a carretera. Te mandamos el informe con fotos por WhatsApp.</p>
-    <div class="precios">
-      <span class="ancla" id="ancla">COP 240.000</span>
-      <span class="oferta num" id="precio">COP 129.000</span>
-      <span class="ahorro" id="ahorro">Ahorras 46 %</span>
+    <a class="marca" href="#">
+      <span class="logo">HR</span>
+      <span class="marca-nombre">Taller Hermanos Restrepo<small>Mecánica general · Itagüí</small></span>
+    </a>
+    <div class="barra-dato">
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Itagüí, Antioquia</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Lun a sáb · 7:30 a. m. – 5:30 p. m.</span>
     </div>
-    <div class="contadores">
-      <div class="contador alerta"><div class="num" id="libres">—</div><small>cupos libres de <span id="totales">—</span></small></div>
-      <div class="contador"><div class="num" id="cuenta">—</div><small id="cuenta-txt">para cerrar inscripciones</small></div>
+  </div>
+</div>
+
+<header class="hero">
+  <svg class="carretera" viewBox="0 0 560 220" fill="none" aria-hidden="true">
+    <path d="M40 200h480M120 150c40-50 90-70 160-70h70c40 0 70 20 95 50l35 20v30H90v-30z" stroke="#fff" stroke-width="10" stroke-linejoin="round"/>
+    <circle cx="170" cy="180" r="28" stroke="#fff" stroke-width="10"/><circle cx="420" cy="180" r="28" stroke="#fff" stroke-width="10"/>
+  </svg>
+  <div class="envoltura hero-grid">
+    <div>
+      <span class="chip"><i></i>Temporada de viajes · Diciembre</span>
+      <h1>Chequeo<span>Vacaciones Seguras</span></h1>
+      <p class="bajada">Frenos, alineación, balanceo y suspensión revisados por mecánicos antes de salir a carretera. Recibes el informe con fotos por WhatsApp.</p>
+
+      <div class="precio-caja">
+        <div class="ancla-linea">Antes <span class="ancla" id="ancla">COP 240.000</span><span class="ahorro" id="ahorro">−46 %</span></div>
+        <div class="oferta num"><span id="precio">COP 129.000</span><small>todo incluido</small></div>
+      </div>
+
+      <div class="contadores">
+        <div class="contador cupos">
+          <div class="etiqueta">Cupos libres</div>
+          <div class="num"><span id="libres">—</span> <small>de <span id="totales">—</span></small></div>
+          <div class="barra-cupos" aria-hidden="true"><i id="barra"></i></div>
+        </div>
+        <div class="contador">
+          <div class="etiqueta" id="cuenta-txt">Cierra inscripciones en</div>
+          <div class="num" id="cuenta">—</div>
+          <div style="color:#a9adb3;font-size:12px;margin-top:6px">Hasta el 30 de noviembre</div>
+        </div>
+      </div>
     </div>
+
+    <section class="tarjeta-form" id="reservar" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Reserva tu cupo</h2>
+      <p class="sub">Atendemos del 1 al 12 de diciembre · 8 carros por día</p>
+      <form id="form" novalidate>
+        <label>Nombre<input name="nombre" autocomplete="name" required maxlength="80" placeholder="Ej. Carolina Gómez"></label>
+        <div class="fila">
+          <label>WhatsApp<input name="whatsapp" inputmode="numeric" autocomplete="tel" required placeholder="300 123 4567"></label>
+          <label>Placa<input id="placa" name="placa" required maxlength="7" placeholder="ABC123" autocapitalize="characters"></label>
+        </div>
+        <fieldset>
+          <legend>¿Qué día traes el carro?</legend>
+          <div class="dias" id="dias"><small>Cargando cupos…</small></div>
+        </fieldset>
+        <label class="oculto" aria-hidden="true">Empresa<input name="empresa" tabindex="-1" autocomplete="off"></label>
+        <div class="mensaje" id="mensaje" role="status" aria-live="polite"></div>
+        <button class="principal" id="enviar" type="submit">Reservar por COP 129.000
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="garantia"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d7a4b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Pagas en el taller · Sin cobros sorpresa</p>
+      </form>
+    </section>
   </div>
 </header>
 
 <main class="envoltura">
-  <section class="tarjeta">
-    <h2>Qué incluye</h2>
-    <ul class="incluye">
-      <li>Revisión de frenos: pastillas, discos y líquido</li>
-      <li>Alineación y balanceo computarizados</li>
-      <li>Suspensión y dirección</li>
-      <li>Luces, batería y niveles</li>
-      <li>Informe con fotos por WhatsApp el mismo día</li>
-    </ul>
-    <p class="nota">Atendemos del 1 al 12 de diciembre (sin domingo ni el festivo del 8), 8 carros por día. Si encontramos algo, te cotizamos antes de tocarlo. Inscripciones hasta el 30 de noviembre o hasta agotar cupos.</p>
+  <section class="bloque">
+    <div class="titulo-sec">
+      <h2>Lo que revisamos</h2>
+      <p>Lo que más falla en carretera. Si encontramos algo, te cotizamos antes de tocarlo.</p>
+    </div>
+    <div class="rejilla">
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><h3>Frenos</h3><p>Pastillas, discos y líquido de frenos.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="8"/></svg></div><h3>Alineación y balanceo</h3><p>Computarizados, para que el carro no se vaya de lado.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4l-3 2 6 2-6 2 6 2-3 2v4"/></svg></div><h3>Suspensión y dirección</h3><p>Amortiguadores, terminales y rótulas.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5M17 7V5M8 13h3M14 13h3M15.5 11.5v3"/></svg></div><h3>Luces, batería y niveles</h3><p>Lo que te deja varado de noche o en un peaje.</p></div>
+      <div class="item"><div class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></div><h3>Informe con fotos</h3><p>Por WhatsApp el mismo día, con lo que encontramos.</p></div>
+    </div>
   </section>
 
-  <section class="tarjeta" aria-labelledby="titulo-form">
-    <h2 id="titulo-form">Reserva tu cupo</h2>
-    <form id="form" novalidate>
-      <label>Nombre<input name="nombre" autocomplete="name" required maxlength="80" placeholder="Ej. Carolina Gómez"></label>
-      <label>WhatsApp<input name="whatsapp" inputmode="numeric" autocomplete="tel" required placeholder="300 123 4567"></label>
-      <label>Placa<input id="placa" name="placa" required maxlength="7" placeholder="ABC123" autocapitalize="characters"></label>
-      <fieldset>
-        <legend>¿Qué día traes el carro?</legend>
-        <div class="dias" id="dias"><small>Cargando cupos…</small></div>
-      </fieldset>
-      <label class="oculto" aria-hidden="true">Empresa<input name="empresa" tabindex="-1" autocomplete="off"></label>
-      <div class="mensaje" id="mensaje" role="status" aria-live="polite"></div>
-      <button class="principal" id="enviar" type="submit">Reservar por COP 129.000</button>
-    </form>
+  <section class="bloque">
+    <div class="titulo-sec"><h2>Así funciona</h2></div>
+    <div class="pasos">
+      <div class="paso"><h3>Reservas en 1 minuto</h3><p>Eliges el día con cupo. Te escribimos por WhatsApp para darte la hora.</p></div>
+      <div class="paso"><h3>Traes el carro</h3><p>Lo recibimos con fotos y lo revisamos en una de nuestras 4 bahías.</p></div>
+      <div class="paso"><h3>Viajas tranquilo</h3><p>Te entregamos el informe y el carro listo el mismo día.</p></div>
+    </div>
   </section>
+
+  <div class="confianza">
+    <div><div class="num">4</div><small>bahías con elevador</small></div>
+    <div><div class="num">7</div><small>mecánicos</small></div>
+    <div><div class="num">~180</div><small>carros al mes</small></div>
+    <div><div class="num">1 día</div><small>de entrega</small></div>
+  </div>
 </main>
-<footer class="envoltura">Taller Hermanos Restrepo · Itagüí, Antioquia · Pagas en el taller el día del servicio. Ejercicio académico: cifras de la oferta ficticias.</footer>
+
+<footer class="envoltura">Taller Hermanos Restrepo · Itagüí, Antioquia · Pagas en el taller el día del servicio.<br>Ejercicio académico: las cifras de la oferta son ficticias.</footer>
+
+<a class="cta-movil" href="#reservar"><span><b id="cta-precio">COP 129.000</b><small id="cta-cupos">Cupos limitados</small></span><span class="boton">Reservar</span></a>
 
 <script>
   const $ = (id) => document.getElementById(id);
@@ -136,9 +266,9 @@
   function pintarCuenta() {
     if (!fechaLimite) return;
     const ms = fechaLimite - Date.now();
-    if (ms <= 0) { $('cuenta').textContent = 'Cerrado'; $('cuenta-txt').textContent = 'inscripciones'; return; }
-    const d = Math.floor(ms / 86400000), h = Math.floor(ms / 3600000) % 24;
-    $('cuenta').textContent = d > 0 ? `${d} d ${h} h` : `${h} h ${Math.floor(ms / 60000) % 60} min`;
+    if (ms <= 0) { $('cuenta').textContent = 'Cerrado'; $('cuenta-txt').textContent = 'Inscripciones'; return; }
+    const d = Math.floor(ms / 86400000), h = Math.floor(ms / 3600000) % 24, m = Math.floor(ms / 60000) % 60;
+    $('cuenta').innerHTML = d > 0 ? `${d}<small> d </small>${h}<small> h</small>` : `${h}<small> h </small>${m}<small> min</small>`;
   }
 
   async function cargar() {
@@ -148,11 +278,14 @@
     abiertas = c.abiertas;
     $('ancla').textContent = cop(c.precioAncla);
     $('precio').textContent = cop(c.precioOferta);
-    $('ahorro').textContent = `Ahorras ${Math.round((1 - c.precioOferta / c.precioAncla) * 100)} %`;
+    $('cta-precio').textContent = cop(c.precioOferta);
+    $('ahorro').textContent = `−${Math.round((1 - c.precioOferta / c.precioAncla) * 100)} %`;
     const libres = c.dias.reduce((s, d) => s + d.libres, 0);
     const total = c.dias.reduce((s, d) => s + d.capacidad, 0);
     $('libres').textContent = libres;
     $('totales').textContent = total;
+    $('barra').style.width = `${Math.round(((total - libres) / total) * 100)}%`;
+    $('cta-cupos').textContent = `Quedan ${libres} cupos`;
     pintarCuenta();
 
     const cont = $('dias');
@@ -162,7 +295,7 @@
       b.type = 'button';
       b.className = 'dia' + (d.libres > 0 && d.libres <= 3 ? ' poco' : '');
       const [dia, num] = d.nombre.split(' ');
-      b.innerHTML = `<b>${dia.slice(0, 3)} ${num}</b><small>${d.libres > 0 ? d.libres + ' libres' : 'Lleno'}</small>`;
+      b.innerHTML = `<span class="dsem">${dia.slice(0, 3)}</span><b>${num}</b><small>${d.libres === 0 ? 'Lleno' : d.libres === 1 ? '1 libre' : d.libres + ' libres'}</small>`;
       b.disabled = d.libres === 0 || !c.abiertas;
       b.setAttribute('aria-pressed', String(d.dia === diaElegido));
       b.setAttribute('aria-label', `${d.nombre}: ${d.libres} cupos libres`);
